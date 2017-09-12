@@ -14,6 +14,6 @@ require('./lib/server.js').start()
 
   connection.connect( err => {
     if(err) console.log('error:', err)
-    console.log('connected as id', connection.threadId)
+    console.log('connected as id:', connection.threadId)
   })
 })
