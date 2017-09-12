@@ -9,7 +9,9 @@ require('./lib/server.js').start()
     host: process.env.DB_ENDPOINT,
     user: process.env.DB_USER,
     password: process.env.DB_PASS,
-    port: process.env.DB_PORT
+    port: process.env.DB_PORT,
+    database: process.env.DB_NAME,
+    localAddress: `https://localhost:${process.env.PORT}`
   })
 
   connection.connect( err => {
@@ -17,13 +19,12 @@ require('./lib/server.js').start()
     console.log('connected as id:', connection.threadId)
 
   })
-  connection.query('CREATE TABLE test_table
-    (
-      username string,
-      password string
-    )'
-  ), (err, results, field) => {
+  connection.query('CREATE TABLE IF NOT EXISTS test
+  (
+    test_column INT
+  )', (err, res, fields) => {
     if(err) throw err;
-    console.log('results:' result)
-  }
+    console.log(res);
+  })
+  connection.end();
 })
