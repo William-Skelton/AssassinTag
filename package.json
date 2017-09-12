@@ -1,0 +1,18 @@
+{
+  "name": "AssassinTagBackend",
+  "version": "1.0.0",
+  "description": "Man is the most dangerous game...",
+  "main": "index.js",
+  "repository": "https://github.com/William-Skelton/AssassinTagBackend.git",
+  "author": "AT-Team",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.1",
+    "cors": "^2.8.4",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.4",
+    "jsonwebtoken": "^8.0.1",
+    "uuid": "^3.1.0"
+  }
+}
