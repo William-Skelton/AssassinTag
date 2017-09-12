@@ -6,6 +6,9 @@
   "repository": "https://github.com/William-Skelton/AssassinTagBackend.git",
   "author": "AT-Team",
   "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
     "bcrypt": "^1.0.3",
     "body-parser": "^1.18.1",
