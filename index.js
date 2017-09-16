@@ -19,10 +19,8 @@ require('./lib/server.js').start()
     console.log('connected as id:', connection.threadId)
 
   })
-  connection.query('CREATE TABLE IF NOT EXISTS test
-  (
-    test_column INT
-  )', (err, res, fields) => {
+  connection.query('CREATE TABLE IF NOT EXISTS test (test_column INT)',
+  (err, res, fields) => {
     if(err) throw err;
     console.log(res);
   })
