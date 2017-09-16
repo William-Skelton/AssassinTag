@@ -11,8 +11,8 @@ addons:
       - gcc-4.8
       - g++-4.8
 env:
-  - CXX=g++-4.8 APP_SECRET='dumbSecret' DB_ENDPOINT='end.point/fake' DB_PORT=3307 AWS_BUCKET='assassinTag' AWS_ACCESS_KEY_ID='fakekey' AWS_SECRET_ACCESS_KEY='fakekey' API_URL='http://localhost:7000' PORT=7000 DB_USER='somefakeuser' DB_NAME='somename' DB_PASS='coolpassword'
-
+  - CXX=g++-4.8
+  
 sudo: required
 before_script: npm i
 script:
