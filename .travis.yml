@@ -12,8 +12,8 @@ addons:
       - g++-4.8
 env:
   - CXX=g++-4.8
-  
+
 sudo: required
 before_script: npm i
 script:
-  - npm start
+  # - npm start
