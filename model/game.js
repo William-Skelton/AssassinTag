@@ -20,4 +20,12 @@ module.exports = mongoose.model('game', gameSchema);
 
 
 //TODO: gameSchema.methods.initializeRound()
-  // -
+  // -if (!game.started) game.started = true;
+  // -use playerSchema.generateContract on each player in the 'players' array
+
+  // players = shuffle(players)
+  // while(players.length) {
+  //   generateContract(players.shift(), players.shift())
+  // }
+
+  // -set curRoundEnd as either a timer, or a date that has a check (to see if ended)?

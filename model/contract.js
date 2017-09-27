@@ -16,3 +16,7 @@ const contractSchema = Schema({
 });
 
 module.exports = mongoose.model('contract', contractSchema);
+
+
+
+//TODO: contractSchema.methods.generateContract(assassinId, targetId)
