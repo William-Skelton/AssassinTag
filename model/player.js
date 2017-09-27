@@ -16,3 +16,22 @@ const playerSchema = Schema({
 });
 
 module.exports = mongoose.model('player', playerSchema);
+
+
+//TODO: playerSchema.methods.joinGame(gameId)
+  // -fetch game with id
+  // -if (game.started) if not, reject
+  // -send a req for join to moderator
+
+
+//TODO: playerSchema.methods.leaveGame(gameId)
+  // -fetch game with id,
+  // -if (game.started) handle differently, auto killed.
+  // -filter out player by id (this._id)
+  // -save()
+
+//TODO: playerSchema.methods.approvePlayer(gameId)
+  // -fetch game with id and return adminId
+  // -if (game.started) return null
+  // -check that adminId === this._id
+  // -upon approve, add playerId to game.players array

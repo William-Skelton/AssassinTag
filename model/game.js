@@ -12,7 +12,12 @@ const gameSchema = Schema({
   alive: [{type: Schema.Types.ObjectId, ref: 'player', required: false, unique: false}], // List of Player Ids who are alive
   dead: [{type: Schema.Types.ObjectId, ref: 'player', required: false, unique: false}], // List of Player Ids who are dead
   rounds: {type: Number, required: false, unique: false},
+  isStarted: {type: Boolean, default: false}
   contracts: [{type: Schema.Types.ObjectId, ref: 'contract', required: false, unique: false}], // List of all contracts associated with this game
 });
 
 module.exports = mongoose.model('game', gameSchema);
+
+
+//TODO: gameSchema.methods.initializeRound()
+  // -
