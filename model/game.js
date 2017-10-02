@@ -20,7 +20,7 @@ const gameSchema = Schema({
 
 module.exports = mongoose.model('game', gameSchema);
 
-//PUT method for our game-routes 
+//PUT method for our game-routes
 gameSchema.methods.initializeRound = () => {
   if (!this.inProgress) {
     this.inProgress = true;
@@ -29,14 +29,15 @@ gameSchema.methods.initializeRound = () => {
 
   this.players = shuffle(this.players)
   for (var i = 0; i < this.players.length; i++) {
-    let contract = new Contract();
     if(i === this.players.length) {
-      contract.designateContract(this.players[i], this.players[0], this._id)
-      contract.save();
+      Contract.generateContract(this.players[i], this.players[0], this._id)
+      .save()
+      .catch(err => createError(400, 'contract could not be generated')
       break;
     }
-    contract.designateContract(this.players[i], this.players[i+1], this._id)
-    contract.save();
+    Contract.generateContract(this.players[i], this.players[i+1], this._id)
+    .save()
+    .catch(err => createError(400, 'contract could not be generated')
   }
 }
 
