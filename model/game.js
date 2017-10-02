@@ -31,12 +31,12 @@ gameSchema.methods.initializeRound = () => {
   for (var i = 0; i < this.players.length; i++) {
     if(i === this.players.length) {
       Contract.generateContract(this.players[i], this.players[0], this._id)
-      .save()
+      .then( contract => contract.save()
       .catch(err => createError(400, 'contract could not be generated')
       break;
     }
     Contract.generateContract(this.players[i], this.players[i+1], this._id)
-    .save()
+    .then( contract => contract.save()
     .catch(err => createError(400, 'contract could not be generated')
   }
 }
