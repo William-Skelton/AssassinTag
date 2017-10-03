@@ -14,11 +14,10 @@ const gameSchema = Schema({
   alive: [{type: Schema.Types.ObjectId, ref: 'player', required: false, unique: false}], // List of Player Ids who are alive
   dead: [{type: Schema.Types.ObjectId, ref: 'player', required: false, unique: false}], // List of Player Ids who are dead
   rounds: {type: Number, required: false, default: 0},
-  inProgress: {type: Boolean, default: false}
-  contracts: [{type: Schema.Types.ObjectId, ref: 'contract', required: false, unique: false}], // List of all contracts associated with this game
+  inProgress: {type: Boolean, default: false},
+  contracts: [{type: Schema.Types.ObjectId, ref: 'contract', required: false, unique: false}] // List of all contracts associated with this game
 });
 
-module.exports = mongoose.model('game', gameSchema);
 
 //PUT method for our game-routes
 gameSchema.methods.initializeRound = () => {
@@ -31,14 +30,15 @@ gameSchema.methods.initializeRound = () => {
   for (var i = 0; i < this.players.length; i++) {
     if(i === this.players.length) {
       Contract.generateContract(this.players[i], this.players[0], this._id)
-      .then( contract => contract.save()
-      .catch(err => createError(400, 'contract could not be generated')
+      .then( contract => contract.save())
+      .catch(err => createError(400, 'contract could not be generated'));
       break;
     }
     Contract.generateContract(this.players[i], this.players[i+1], this._id)
-    .then( contract => contract.save()
-    .catch(err => createError(400, 'contract could not be generated')
+    .then( contract => contract.save())
+    .catch(err => createError(400, 'contract could not be generated'));
   }
 }
 
   // -set curRoundEnd as either a timer, or a date that has a check (to see if ended)?
+  module.exports = Mongoose.model('game', gameSchema);

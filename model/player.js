@@ -15,7 +15,7 @@ const playerSchema = Schema({
   achievements: {type: Object, required: true, unique: false}
 });
 
-module.exports = mongoose.model('player', playerSchema);
+module.exports = Mongoose.model('player', playerSchema);
 
 
 //TODO: playerSchema.methods.joinGame(gameId)

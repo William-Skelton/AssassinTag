@@ -11,7 +11,7 @@ const debug = require('debug')('assassintag:user');
 
 const userSchema = Schema({
   username: {type: String, required: true, unique: true},
-  email: {type: String, required: true, unique: true},
+  // email: {type: String, required: true, unique: true},
   password: {type: String, required: true, unique: false},
   findHash: {type: String, required: false, unique: true}
 });
@@ -69,4 +69,4 @@ userSchema.methods.generateToken = function() {
     .catch( err => reject(err));
   });
 };
-module.exports = mongoose.model('user', userSchema);
+module.exports = Mongoose.model('user', userSchema);
