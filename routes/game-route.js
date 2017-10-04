@@ -33,3 +33,10 @@ gameRouter.post( '/api/game', jsonParser, (req, res, next) => {
   .then( game => res.json(game) )
   .catch(next);
 });
+gameRouter.get( 'api/game/:id', function(req, res, next) {
+  debug('GET: api/game/:id');
+
+  Game.findOne({'_id': req.params.gameId})
+  .then( game => res.json(game))
+  .catch( () => next(createError(404, 'not found')));
+});

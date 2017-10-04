@@ -40,5 +40,5 @@ gameSchema.methods.initializeRound = () => {
   }
 }
 
-  // -set curRoundEnd as either a timer, or a date that has a check (to see if ended)?
-  module.exports = Mongoose.model('game', gameSchema);
+// -set curRoundEnd as either a timer, or a date that has a check (to see if ended)?
+module.exports = Mongoose.model('game', gameSchema);
